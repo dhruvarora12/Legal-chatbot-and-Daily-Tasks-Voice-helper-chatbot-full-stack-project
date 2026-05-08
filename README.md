@@ -177,21 +177,13 @@ ai-project-mock/
 ---
 
 ## Screenshots
+<img width="2303" height="1122" alt="image" src="https://github.com/user-attachments/assets/5f4d26a7-f69c-4abe-9a35-0aeaa0947203" />
+<img width="2169" height="1300" alt="image" src="https://github.com/user-attachments/assets/a6badfa4-d938-4d8f-9d83-c3eff373301d" />
+<img width="2047" height="1274" alt="image" src="https://github.com/user-attachments/assets/e2c52133-c54c-4cf5-99ae-4c0f1e71ccd3" />
+<img width="1712" height="1265" alt="image" src="https://github.com/user-attachments/assets/951bc4f4-db90-435e-9c57-0fa08bc41e68" />
 
-> Add real screenshots in `docs/screenshots/` and update links.
 
-Recommended:
-- `docs/screenshots/dashboard.png`
-- `docs/screenshots/legal-chat.png`
-- `docs/screenshots/voice-task.png`
-- `docs/screenshots/analysis-legal-tab.png`
-- `docs/screenshots/analysis-voice-tab.png`
 
-Example:
-
-```md
-![Dashboard](docs/screenshots/dashboard.png)
-```
 
 ---
 
