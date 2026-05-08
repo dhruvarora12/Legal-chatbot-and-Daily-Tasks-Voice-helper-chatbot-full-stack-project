@@ -224,7 +224,7 @@ export default function VoiceTaskApp() {
               Try saying "Remind me to submit the quarterly report next Friday"
             </div>
           )}
-          {transcript.map((msg, idx) => (
+          {transcript.map((msg) => (
             <motion.div 
               key={msg.id}
               initial={{ opacity: 0, y: 10 }}

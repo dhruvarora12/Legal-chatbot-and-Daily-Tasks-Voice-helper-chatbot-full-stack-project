@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+// @ts-ignore
 import ColorBends from '../components/ColorBends';
 import { Mic, Scale, LineChart } from 'lucide-react';
 

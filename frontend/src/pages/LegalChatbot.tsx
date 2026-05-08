@@ -91,7 +91,7 @@ export default function LegalChatbot() {
         <div className="flex-grow bg-white/[0.02] backdrop-blur-3xl border border-white/5 rounded-3xl p-6 flex flex-col overflow-hidden shadow-[inset_0_1px_1px_rgba(255,255,255,0.05),0_0_40px_rgba(0,0,0,0.5)]">
           {/* Messages */}
           <div className="flex-grow overflow-y-auto pr-4 space-y-6 custom-scrollbar pb-4">
-            {messages.map((msg, idx) => (
+            {messages.map((msg) => (
               <motion.div 
                 key={msg.id}
                 initial={{ opacity: 0, y: 10 }}
