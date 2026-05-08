@@ -35,7 +35,7 @@ import sys
 import textwrap
 import warnings
 from contextlib import nullcontext
-from typing import Dict, List, Optional
+from typing import Any, Dict, List, Optional
 from urllib.parse import urlparse, urlunparse
 
 # Suppress qdrant_client's "Api key used with insecure connection" warning
@@ -60,7 +60,6 @@ from dotenv import load_dotenv
 load_dotenv()
 
 from openai import OpenAI
-from sentence_transformers import SentenceTransformer
 from qdrant_client import QdrantClient
 from qdrant_client.models import FieldCondition, Filter, MatchAny, MatchValue
 from rich.console import Console
@@ -168,7 +167,7 @@ def _normalize_url(url: str) -> str:
 # ── Clients ───────────────────────────────────────────────────────────────────
 
 # Embedding model is loaded once at startup (first call) and reused.
-_embed_model: Optional[SentenceTransformer] = None
+_embed_model: Optional[Any] = None
 
 
 def get_qdrant_client() -> QdrantClient:
@@ -182,10 +181,12 @@ def get_qdrant_client() -> QdrantClient:
     )
 
 
-def get_embedding_client() -> SentenceTransformer:
+def get_embedding_client() -> Any:
     """Local open-weight embedding model — no API key required."""
     global _embed_model
     if _embed_model is None:
+        # Lazy import keeps FastAPI startup memory lower on free hosts.
+        from sentence_transformers import SentenceTransformer
         _embed_model = SentenceTransformer(EMBEDDING_MODEL)
     return _embed_model
 
@@ -199,13 +200,13 @@ def get_llm_client() -> OpenAI:
 
 
 # Keep for backwards compatibility
-def get_openai_client() -> SentenceTransformer:
+def get_openai_client() -> Any:
     return get_embedding_client()
 
 
 # ── Retrieval ─────────────────────────────────────────────────────────────────
 
-def embed_query(model: SentenceTransformer, query: str) -> List[float]:
+def embed_query(model: Any, query: str) -> List[float]:
     """Embed the user's question using the local embedding model."""
     return model.encode(query, normalize_embeddings=True).tolist()
 
