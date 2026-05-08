@@ -1,6 +1,6 @@
 # AI Productivity Suite
 
-Portfolio-grade full-stack AI project that combines:
+Full-stack AI project that combines:
 
 - a **Legal RAG Assistant** for BNS-focused question answering
 - a **Voice Task Manager** that executes natural-language commands

@@ -17,6 +17,8 @@ const recommendedQuestions = [
   "What constitutes 'rape' under Section 63 of the BNS?"
 ];
 
+const API_BASE = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000';
+
 export default function LegalChatbot() {
   const [input, setInput] = useState('');
   const [messages, setMessages] = useState<ChatMessage[]>([
@@ -40,7 +42,7 @@ export default function LegalChatbot() {
     setIsLoading(true);
 
     try {
-      const response = await fetch('http://localhost:8000/api/legal-chat', {
+      const response = await fetch(`${API_BASE}/api/legal-chat`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ question: userText, stream: false })

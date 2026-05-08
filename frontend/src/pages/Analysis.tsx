@@ -30,6 +30,7 @@ interface VoiceAnalyticsResponse {
 }
 
 const glassCardClass = 'bg-white/[0.06] backdrop-blur-2xl border border-white/15 shadow-[inset_0_1px_0_rgba(255,255,255,0.22),0_18px_40px_rgba(6,4,20,0.28)]';
+const API_BASE = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000';
 
 export default function Analysis() {
   const [legalData, setLegalData] = useState<AnalyticsResponse | null>(null);
@@ -41,13 +42,13 @@ export default function Analysis() {
     const loadAnalytics = async () => {
       try {
         await Promise.all([
-          fetch('http://localhost:8000/api/legal-analytics/seed', { method: 'POST' }),
-          fetch('http://localhost:8000/api/voice-analytics/seed', { method: 'POST' }),
+          fetch(`${API_BASE}/api/legal-analytics/seed`, { method: 'POST' }),
+          fetch(`${API_BASE}/api/voice-analytics/seed`, { method: 'POST' }),
         ]);
 
         const [legalRes, voiceRes] = await Promise.all([
-          fetch('http://localhost:8000/api/legal-analytics'),
-          fetch('http://localhost:8000/api/voice-analytics'),
+          fetch(`${API_BASE}/api/legal-analytics`),
+          fetch(`${API_BASE}/api/voice-analytics`),
         ]);
         if (!legalRes.ok || !voiceRes.ok) throw new Error('Failed to fetch analytics');
 

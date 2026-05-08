@@ -24,6 +24,8 @@ interface VoiceActionResponse {
   error?: string;
 }
 
+const API_BASE = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000';
+
 // Ensure TypeScript knows about SpeechRecognition
 declare global {
   interface Window {
@@ -54,7 +56,7 @@ export default function VoiceTaskApp() {
 
   const refreshTasks = async () => {
     try {
-      const response = await fetch('http://localhost:8000/api/tasks');
+      const response = await fetch(`${API_BASE}/api/tasks`);
       const data = await response.json();
       setTasks(Array.isArray(data) ? data.map(normalizeTask) : []);
     } catch (err) {
@@ -65,7 +67,7 @@ export default function VoiceTaskApp() {
   // Fetch tasks on load
   useEffect(() => {
     refreshTasks();
-    fetch('http://localhost:8000/api/voice/mock-questions')
+    fetch(`${API_BASE}/api/voice/mock-questions`)
       .then(res => res.json())
       .then(data => setMockQuestions(data.questions ?? []))
       .catch(err => console.error("Error fetching mock questions:", err));
@@ -122,7 +124,7 @@ export default function VoiceTaskApp() {
     setTranscript(prev => [...prev, userMsg]);
 
     try {
-      const response = await fetch('http://localhost:8000/api/voice/action', {
+      const response = await fetch(`${API_BASE}/api/voice/action`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ text })
@@ -167,7 +169,7 @@ export default function VoiceTaskApp() {
     setTasks(prev => prev.map(t => t.id === taskId ? { ...t, status: newStatus } : t));
     
     try {
-      await fetch(`http://localhost:8000/api/tasks/${taskId}/status?status=${newStatus}`, {
+      await fetch(`${API_BASE}/api/tasks/${taskId}/status?status=${newStatus}`, {
         method: 'PUT'
       });
     } catch (err) {
