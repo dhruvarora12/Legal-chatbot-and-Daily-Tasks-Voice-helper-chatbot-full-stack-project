@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(\\(Get-Item \"C:\\\\Users\\\\Yashwin\\\\Documents\\\\Projects\\\\Legal_RAG\\\\chunks_s1.json\"\\).Length; \\(Get-Item \"C:\\\\Users\\\\Yashwin\\\\Documents\\\\Projects\\\\Legal_RAG\\\\chunks_s2.json\"\\).Length)",
+      "PowerShell($j = Get-Content \"C:\\\\Users\\\\Yashwin\\\\Documents\\\\Projects\\\\Legal_RAG\\\\chunks_s1.json\" -Raw | ConvertFrom-Json; $j.Count; $j[0..4] | ConvertTo-Json -Depth 5)",
+      "PowerShell($j = Get-Content \"C:\\\\Users\\\\Yashwin\\\\Documents\\\\Projects\\\\Legal_RAG\\\\chunks_s2.json\" -Raw | ConvertFrom-Json; $j.Count; $j[0..4] | ConvertTo-Json -Depth 5)"
+    ]
+  },
+  "enableAllProjectMcpServers": true,
+  "enabledMcpjsonServers": [
+    "claude-flow"
+  ]
+}

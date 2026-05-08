@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(cd \"C:\\\\Users\\\\Yashwin\\\\Documents\\\\Projects\\\\dh_voice\"; $env:PORT=\"3000\"; $env:JWT_SECRET=\"dev_secret_change_before_production_abc123xyz\"; $env:DB_PATH=\"./data/tasks.db\"; npx tsx src/index.ts 2>&1 | Select-Object -First 5)",
+      "PowerShell(Get-Process *)"
+    ]
+  },
+  "enableAllProjectMcpServers": true,
+  "enabledMcpjsonServers": [
+    "claude-flow"
+  ]
+}

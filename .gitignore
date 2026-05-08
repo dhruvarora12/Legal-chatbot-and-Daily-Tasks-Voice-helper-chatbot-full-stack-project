@@ -1,0 +1,43 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+venv/
+env/
+
+# Environment / secrets
+.env
+.env.*
+*.pem
+*.key
+
+# SQLite / local runtime artifacts
+*.db
+*.db-shm
+*.db-wal
+backend/dashboard.db
+backend/qdrant_local/
+
+# Node
+node_modules/
+frontend/node_modules/
+backend/dh_voice/node_modules/
+
+# Build outputs
+dist/
+build/
+.next/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# IDE
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
