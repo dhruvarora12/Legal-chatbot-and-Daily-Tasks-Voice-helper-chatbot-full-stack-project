@@ -1,5 +1,9 @@
 # AI Productivity Suite
 
+**🚀 Live Deployments:**
+- **Frontend (Vercel):** [https://legal-chatbot-and-daily-tasks-voice-two.vercel.app/](https://legal-chatbot-and-daily-tasks-voice-two.vercel.app/)
+- **Backend (Railway):** [https://legal-chatbot-and-daily-tasks-voice-helper-chatb-production.up.railway.app](https://legal-chatbot-and-daily-tasks-voice-helper-chatb-production.up.railway.app)
+
 Full-stack AI project that combines:
 
 - a **Legal RAG Assistant** for BNS-focused question answering
